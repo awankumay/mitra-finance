@@ -1,3 +1,4 @@
+const path = require("path");
 const express = require("express");
 const cors = require("cors");
 const helmet = require("helmet");
@@ -76,6 +77,16 @@ app.use("/api/assets", authMiddleware, writeLimiter, assetRoutes);
 app.use("/api/snapshots", authMiddleware, writeLimiter, snapshotRoutes);
 app.use("/api/dashboard", authMiddleware, dashboardRoutes);
 app.use("/api/admin/logs", authMiddleware, auditRoutes);
+
+// -- Production: serve React frontend build --
+if (env.NODE_ENV === "production") {
+  const distPath = path.join(__dirname, "../../frontend/dist");
+  app.use(express.static(distPath));
+  // SPA catch-all: return index.html for non-API routes
+  app.get(/^(?!\/api).*/, (_req, res) => {
+    res.sendFile(path.join(distPath, "index.html"));
+  });
+}
 
 app.use((err, _req, res, _next) => {
   console.error(err);
