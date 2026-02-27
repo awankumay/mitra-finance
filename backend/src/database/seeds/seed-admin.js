@@ -3,8 +3,8 @@ const { pool } = require("../../config/database");
 const { env } = require("../../config/env");
 
 async function seedAdmin() {
-  const email = process.env.ADMIN_EMAIL || "admin@mitrafinance.local";
-  const password = process.env.ADMIN_PASSWORD || "Admin1234";
+  const email = process.env.ADMIN_EMAIL || "admin@example.com";
+  const password = process.env.ADMIN_PASSWORD || "Password123";
   const name = process.env.ADMIN_NAME || "Admin";
 
   const passwordHash = await bcrypt.hash(password, env.BCRYPT_ROUNDS);
