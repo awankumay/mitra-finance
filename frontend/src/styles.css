@@ -1,0 +1,10 @@
+/* Override: pastikan chart canvas punya tinggi eksplisit */
+.dashboard-chart-canvas {
+  min-height: 280px;
+}
+
+/* Override: NavLink active state sesuai warna brand */
+.navbar-nav .active {
+  font-weight: 600;
+  color: #0d6efd !important;
+}
