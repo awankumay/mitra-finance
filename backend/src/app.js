@@ -38,7 +38,11 @@ app.use(
         styleSrc: ["'self'", "'unsafe-inline'", "https://cdn.jsdelivr.net"],
         styleSrcElem: ["'self'", "'unsafe-inline'", "https://cdn.jsdelivr.net"],
         imgSrc: ["'self'", "data:"],
-        connectSrc: ["'self'", "https://cloudflareinsights.com"],
+        connectSrc: [
+          "'self'",
+          "https://cloudflareinsights.com",
+          "https://cdn.jsdelivr.net",
+        ],
         fontSrc: ["'self'", "https://cdn.jsdelivr.net"],
         objectSrc: ["'none'"],
         frameSrc: ["'none'"],
