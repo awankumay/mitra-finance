@@ -23,11 +23,23 @@ app.use(
     contentSecurityPolicy: {
       directives: {
         defaultSrc: ["'self'"],
-        scriptSrc: ["'self'"],
-        styleSrc: ["'self'", "'unsafe-inline'"],
+        scriptSrc: [
+          "'self'",
+          "https://cdn.jsdelivr.net",
+          "https://static.cloudflareinsights.com",
+          "'unsafe-inline'",
+        ],
+        scriptSrcElem: [
+          "'self'",
+          "https://cdn.jsdelivr.net",
+          "https://static.cloudflareinsights.com",
+          "'unsafe-inline'",
+        ],
+        styleSrc: ["'self'", "'unsafe-inline'", "https://cdn.jsdelivr.net"],
+        styleSrcElem: ["'self'", "'unsafe-inline'", "https://cdn.jsdelivr.net"],
         imgSrc: ["'self'", "data:"],
-        connectSrc: ["'self'"],
-        fontSrc: ["'self'"],
+        connectSrc: ["'self'", "https://cloudflareinsights.com"],
+        fontSrc: ["'self'", "https://cdn.jsdelivr.net"],
         objectSrc: ["'none'"],
         frameSrc: ["'none'"],
       },
